@@ -1,0 +1,71 @@
+.app_root {
+    padding: 12px;
+    border: 6px darkolivegreen dotted;
+}
+
+.button_box {
+    display:  flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 32px;
+}
+
+.list {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  position: relative;
+  height: 20vh;
+}
+
+.list > div {
+  border: 1px solid blue;
+  width: var(--card-width);
+  height: 60px;
+  position: absolute;
+  box-sizing: border-box;
+  transition: transform 2s;
+  transform: translateX(var(--offset));
+}
+
+.adding {
+  animation: 2s slidein;
+}
+
+@keyframes slidein {
+  from {
+    transform: translateX(calc(-1 * var(--card-width)));
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+.removing {
+  animation: 2s forwards slideout2;
+}
+
+.removing.first_adding {
+  animation: 2s forwards slideout1;
+}
+
+@keyframes slideout1 {
+  from {
+  }
+
+  to {
+    /* transform: translateX(calc(var(--offset) + 40px; */
+    opacity: 0;
+  }
+}
+
+@keyframes slideout2 {
+  from {
+  }
+
+  to {
+    transform: translateX(calc(var(--offset) + var(--card-width)));
+    opacity: 0;
+  }
+}
